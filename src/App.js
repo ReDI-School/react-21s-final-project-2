@@ -1,14 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
+import RestaurantList from "./components/RestaurantList";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<RestaurantList />
+		</div>
+	);
 }
 
 export default App;
