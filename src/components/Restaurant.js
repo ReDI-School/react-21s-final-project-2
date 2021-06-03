@@ -5,7 +5,7 @@ const apiRestaurant =
     "https://redi-final-restaurants.herokuapp.com/restaurants";
 
 export default function Restaurant() {
-    const [restaurantDetails, setRestaurantDetails] = useState({});
+    const [restaurantDetails, setRestaurantDetails] = useState([]);
 
     useEffect(() => {
 
