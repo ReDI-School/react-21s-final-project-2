@@ -40,3 +40,5 @@ export const Contact = () => {
         </form>
     );
 };
+
+export default Contact;

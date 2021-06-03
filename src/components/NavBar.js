@@ -24,6 +24,17 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/list"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
                 Restaurant List
               </NavLink>
             </li>
