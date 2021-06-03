@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import RestaurantList from "./Components/RestaurantList";
 import "./App.css";
-import NavBar from "./Components/NavBar";
-import { Home } from "./Components/Layout/Home";
-import { Contact } from "./Components/Layout/Contact";
+import RestaurantList from "./components/RestaurantList";
+import NavBar from "./components/NavBar";
+import { Home } from "./components/Layout/Home";
+import { Contact } from "./components/Layout/Contact";
 
 function App() {
   return (
