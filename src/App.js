@@ -14,7 +14,7 @@ function App() {
 
         <div className="pages">
           <Switch>
-            <Route path="/list" component={RestaurantList} />
+            <Route path="/" component={RestaurantList} />
             <Route path="/contact" component={Contact} />
             <Route path="/restaurant" component={Restaurant} />
           </Switch>
