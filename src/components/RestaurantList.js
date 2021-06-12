@@ -5,25 +5,63 @@ import "./restaurantList.css";
 const apiUrl = "https://redi-final-restaurants.herokuapp.com/restaurants";
 
 export default function RestaurantList() {
-    const [restaurantName, setRestaurantName] = useState([]);
+    const [restaurants, setRestaurants] = useState([]);
+    const [selectedCuisine, setSelectedCuisine] = useState("");
+    const [selectedType, setSelectedType] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const getName = async () => {
             const response = await fetch(apiUrl);
             const data = await response.json();
 
-            setRestaurantName(data.results);
+            setRestaurants(data.results);
             console.log(data.results);
         };
         getName();
     }, []);
 
+    function filterRestaurants(
+        restaurants,
+        selectedCuisine,
+        selectedType,
+        isOpen,
+    ) {
+        return restaurants.filter((restaurant) => {
+            if (selectedCuisine !== "") {
+                return restaurant.cuisine === selectedCuisine;
+            }
+            if (selectedType === "delivery") {
+                return restaurant.delivery;
+            }
+            if (selectedType === "pickup") {
+                return restaurant.pickup;
+            }
+            if (isOpen) {
+                return restaurant.opening_hours.open_now;
+            }
+            return true;
+        });
+    }
+
     return (
         <div className="outer-container">
-            <RestFilter />
+            <RestFilter
+                selectedCuisine={selectedCuisine}
+                setSelectedCuisine={setSelectedCuisine}
+                selectedType={selectedType}
+                setSelectedType={setSelectedType}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+            />
             <div className="pageContainer">
                 <div className="restList">
-                    {restaurantName.map((restaurant) => (
+                    {filterRestaurants(
+                        restaurants,
+                        selectedCuisine,
+                        selectedType,
+                        isOpen,
+                    ).map((restaurant) => (
                         <div className="listItem" key={restaurant.id}>
                             <div className="img-content">
                                 <img src={restaurant.photos[0].links[0]}></img>

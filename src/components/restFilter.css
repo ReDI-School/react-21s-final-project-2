@@ -3,10 +3,29 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
-.cuisine-filter,
-.delivery-filter,
-.open-filter {
-    padding: 10px 30px;
+.filter-item {
+    display: flex;
+    align-items: center;
+}
+
+.filter-item p {
+    color: #919191;
+    font-weight: bolder;
+}
+
+.open-checkbox {
+    color: #919191;
+    font-weight: bolder;
+}
+
+.filter-item select {
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 0px 10px;
+    border: solid 2px #919191;
+    color: #919191;
 }
