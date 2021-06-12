@@ -27,21 +27,39 @@ export default function RestaurantList() {
         selectedType,
         isOpen,
     ) {
-        return restaurants.filter((restaurant) => {
+        const filterRestaurantsByCuisine = (rest) => {
             if (selectedCuisine !== "") {
-                return restaurant.cuisine === selectedCuisine;
-            }
-            if (selectedType === "delivery") {
-                return restaurant.delivery;
-            }
-            if (selectedType === "pickup") {
-                return restaurant.pickup;
-            }
-            if (isOpen) {
-                return restaurant.opening_hours.open_now;
+                return rest.cuisine === selectedCuisine;
+                console.log(selectedCuisine);
             }
             return true;
-        });
+        };
+
+        const filterRestaurantsByType = (rest) => {
+            if (selectedType === "delivery") {
+                return rest.delivery;
+            }
+            if (selectedType === "pickup") {
+                return rest.pickup;
+            }
+            return true;
+        };
+
+        const filterRestaurantsByOpen = (rest) => {
+            if (isOpen) {
+                return rest.opening_hours.open_now;
+            }
+            return true;
+        };
+
+        return restaurants
+            .filter(filterRestaurantsByCuisine)
+            .filter(filterRestaurantsByType)
+            .filter(filterRestaurantsByOpen);
+    }
+
+    if (restaurants === undefined) {
+        return <div></div>;
     }
 
     return (
