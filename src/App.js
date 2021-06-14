@@ -2,9 +2,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import RestaurantList from "./components/RestaurantList";
 import NavBar from "./components/NavBar";
-//import { Home } from "./components/Layout/Home";
 import { Contact } from "./components/Layout/Contact";
-import Restaurant from "./components/Restaurant";
+import SocialFollow from "./components/SocialFollow";
 
 function App() {
   return (
@@ -14,11 +13,12 @@ function App() {
 
         <div className="pages">
           <Switch>
-            <Route path="/" component={RestaurantList} />
+            <Route exact path="/" component={RestaurantList} />
             <Route path="/contact" component={Contact} />
-            <Route path="/restaurant" component={Restaurant} />
+            <Route exact path="/Social-Follow/${i}" component={SocialFollow} />
           </Switch>
         </div>
+        <SocialFollow />
       </Router>
     </div>
   );

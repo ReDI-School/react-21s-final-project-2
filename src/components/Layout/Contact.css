@@ -1,0 +1,32 @@
+.container {
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#button {
+    padding: 20px;
+    border: none;
+    background-color: rgb(21, 211, 170);
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin-top: 10px;
+}
+#button:hover {
+    background-color: rgba(6, 75, 60, 0.274);
+}
+#message {
+    height: 150px;
+    max-width: 400px;
+    min-height: 100px;
+}
+#name,
+#email {
+    padding-bottom: 10px;
+    color: rgb(0, 0, 32);
+    font-weight: bold;
+}

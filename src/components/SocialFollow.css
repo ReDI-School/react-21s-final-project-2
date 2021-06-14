@@ -1,0 +1,35 @@
+.social-container {
+    background: linear-gradient(
+        90deg,
+        rgb(182, 210, 165) 10%,
+        rgb(131, 186, 163) 59%,
+        rgb(13, 233, 171) 100%
+    );
+    padding: 25px 50px;
+}
+
+a.social {
+    margin: 0 1rem;
+    transition: transform 250ms;
+    display: inline-block;
+}
+
+a.social:hover {
+    transform: translateY(-2px);
+}
+
+a.youtube {
+    color: #eb3223;
+}
+
+a.facebook {
+    color: #4968ad;
+}
+
+a.twitter {
+    color: #49a1eb;
+}
+
+a.instagram {
+    color: black;
+}

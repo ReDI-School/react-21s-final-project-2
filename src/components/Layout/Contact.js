@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Contact.css";
 
 export const Contact = () => {
     const [status, setStatus] = useState("Submit");
@@ -22,23 +23,31 @@ export const Contact = () => {
         let result = await response.json();
         alert(result.status);
     };
-    return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="name">Name:</label>
-                <input type="text" id="name" required />
-            </div>
-            <div>
-                <label htmlFor="email">Email:</label>
-                <input type="email" id="email" required />
-            </div>
-            <div>
-                <label htmlFor="message">Message:</label>
-                <textarea id="message" required />
-            </div>
-            <button type="submit">{status}</button>
-        </form>
-    );
+  
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="container">
+        <div className="row">
+          <h1>Contact Us</h1>
+          <h3>We'd love to hear from you!</h3>
+          <label htmlFor="name">Name:</label>
+          <br />
+          <input type="text" id="name" required />
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <br />
+          <input type="email" id="email" required />
+        </div>
+        <div>
+          <label htmlFor="message">Message:</label>
+          <br />
+          <textarea id="message" required />
+        </div>
+          <button type="submit"id="button">{status}</button>
+      </div>
+    </form>
+  );
 };
 
 export default Contact;
