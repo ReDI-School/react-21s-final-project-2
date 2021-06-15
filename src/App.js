@@ -6,22 +6,26 @@ import { Contact } from "./components/Layout/Contact";
 import SocialFollow from "./components/SocialFollow";
 
 function App() {
-  return (
-    <div className="App">
-      <Router>
-        <NavBar />
+    return (
+        <div className="App">
+            <Router>
+                <NavBar />
 
-        <div className="pages">
-          <Switch>
-            <Route exact path="/" component={RestaurantList} />
-            <Route path="/contact" component={Contact} />
-            <Route exact path="/Social-Follow/${i}" component={SocialFollow} />
-          </Switch>
+                <div className="pages">
+                    <Switch>
+                        <Route exact path="/" component={RestaurantList} />
+                        <Route path="/contact" component={Contact} />
+                        <Route
+                            exact
+                            path="/Social-Follow"
+                            component={SocialFollow}
+                        />
+                    </Switch>
+                </div>
+                <SocialFollow />
+            </Router>
         </div>
-        <SocialFollow />
-      </Router>
-    </div>
-  );
+    );
 }
 
 export default App;
