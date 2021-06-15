@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 const apiRestaurant =
     "https://redi-final-restaurants.herokuapp.com/restaurants";
 
-export default function Restaurant() {
+export default function Restaurant(props) {
     const [restaurantDetails, setRestaurantDetails] = useState([]);
+
 
     useEffect(() => {
 
@@ -13,11 +14,11 @@ export default function Restaurant() {
             const response = await fetch(apiRestaurant);
             const data = await response.json();
             setRestaurantDetails(data.results);
-            console.log(data.results);
+
         };
         getRestaurant();
     }, []);
-
+    console.log("props: ", props);
     return (
         <div className="Container">
             {restaurantDetails.map((rest) => (
@@ -37,7 +38,7 @@ export default function Restaurant() {
                         {rest.opening_hours.hours.open} ~
                         {rest.opening_hours.hours.close}
                     </p>
-                    <p> Delievery
+                    <p> Delivery
                         {rest.delivery ? "available" : "not available"}
                     </p>
                     <p>Pick Up
