@@ -30,7 +30,6 @@ export default function RestaurantList() {
         const filterRestaurantsByCuisine = (rest) => {
             if (selectedCuisine !== "") {
                 return rest.cuisine === selectedCuisine;
-                console.log(selectedCuisine);
             }
             return true;
         };
@@ -82,7 +81,10 @@ export default function RestaurantList() {
                     ).map((restaurant) => (
                         <div className="listItem" key={restaurant.id}>
                             <div className="img-content">
-                                <img src={restaurant.photos[0].links[0]}></img>
+                                <img
+                                    src={restaurant.photos[0].links[0]}
+                                    alt="restaurant"
+                                ></img>
                             </div>
 
                             <div className="text-content">
