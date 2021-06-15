@@ -6,15 +6,22 @@ const apiRestaurant =
 
 export default function Restaurant(props) {
     const [restaurantDetails, setRestaurantDetails] = useState([]);
-
+    const restaurantId = props.match.params.restaurantId;
 
     useEffect(() => {
 
         const getRestaurant = async () => {
             const response = await fetch(apiRestaurant);
             const data = await response.json();
-            setRestaurantDetails(data.results);
+            const selectedRestaurant = data.results.find(item => {
+                if (item.id === restaurantId) {
+                    return true;
+                }
+                return false;
 
+            })
+            setRestaurantDetails([selectedRestaurant]);
+            console.log(selectedRestaurant);
         };
         getRestaurant();
     }, []);
