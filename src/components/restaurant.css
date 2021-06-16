@@ -1,0 +1,79 @@
+.Container {
+    padding: 20px 50px 50px 50px;
+    margin: 0 auto;
+}
+
+
+.RestaurantInfo {
+    padding: 10px 20px;
+    margin: 0px auto;
+    background-color: #fff;
+    width: 500px;
+    border-radius: 10px;
+    color: #919191;
+    font-size: 16px;
+    transition: ease-in-out 0.5s;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 8px 1px #b7b7b7;
+}
+
+.img-content {
+    width: 500px;
+    margin-right: 1px;
+    margin-bottom: 30px;
+    
+}
+
+.RestaurantInfo img {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: 10px;
+    align-items:center;
+    margin-top: 10px;
+}
+
+.RestaurantInfo h1 {
+    font-size: 24px;
+    color: #1f5156;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.text-content {
+    margin: 10px;
+    text-align:center;
+    
+}
+
+.text-content p {
+    margin: 10px 0px;
+}
+
+.status-positive {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1f5156;
+    margin: 8px 0px;
+
+}
+
+.status-negative {
+    font-size: 15px;
+    font-weight: bold;
+    color: #919191;
+    margin: 8px 0px;
+}
+
+.restaurant-cuisine {
+  font-weight: bold; 
+}
+
+.restaurant-phone, .restaurant-price-level {
+    color: #020202;
+}
+
