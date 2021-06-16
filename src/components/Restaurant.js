@@ -4,20 +4,28 @@ import { useEffect, useState } from "react";
 const apiRestaurant =
     "https://redi-final-restaurants.herokuapp.com/restaurants";
 
-export default function Restaurant() {
+export default function Restaurant(props) {
     const [restaurantDetails, setRestaurantDetails] = useState([]);
+    const restaurantId = props.match.params.restaurantId;
 
     useEffect(() => {
 
         const getRestaurant = async () => {
             const response = await fetch(apiRestaurant);
             const data = await response.json();
-            setRestaurantDetails(data.results);
-            console.log(data.results);
+            const selectedRestaurant = data.results.find(item => {
+                if (item.id === restaurantId) {
+                    return true;
+                }
+                return false;
+
+            })
+            setRestaurantDetails([selectedRestaurant]);
+            console.log(selectedRestaurant);
         };
         getRestaurant();
     }, []);
-
+    console.log("props: ", props);
     return (
         <div className="Container">
             {restaurantDetails.map((rest) => (
@@ -37,7 +45,7 @@ export default function Restaurant() {
                         {rest.opening_hours.hours.open} ~
                         {rest.opening_hours.hours.close}
                     </p>
-                    <p> Delievery
+                    <p> Delivery
                         {rest.delivery ? "available" : "not available"}
                     </p>
                     <p>Pick Up

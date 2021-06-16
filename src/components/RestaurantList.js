@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import RestFilter from "./RestFilter";
 import "./restaurantList.css";
-
+import { Link } from "react-router-dom";
+import { dom } from "@fortawesome/fontawesome-svg-core";
 const apiUrl = "https://redi-final-restaurants.herokuapp.com/restaurants";
 
 export default function RestaurantList() {
@@ -79,47 +80,50 @@ export default function RestaurantList() {
                         selectedType,
                         isOpen,
                     ).map((restaurant) => (
-                        <div className="listItem" key={restaurant.id}>
-                            <div className="img-content">
-                                <img
-                                    src={restaurant.photos[0].links[0]}
-                                    alt="restaurant"
-                                ></img>
-                            </div>
+                        <Link to={`restaurant/${restaurant.id}`}  >
+                            <div className="listItem" key={restaurant.id}>
+                                <div className="img-content">
+                                    <img
+                                        src={restaurant.photos[0].links[0]}
+                                        alt="restaurant"
+                                    ></img>
+                                </div>
 
-                            <div className="text-content">
-                                <h1>{restaurant.name}</h1>
-                                <p className="cuisine">
-                                    Cuisine: {restaurant.cuisine}
-                                </p>
-                                <p className="rest-address">
-                                    {restaurant.formatted_address}
-                                </p>
-                                <div className="delivery">
-                                    <p>Delivery:</p>{" "}
-                                    {restaurant.delivery ? (
-                                        <p className="status-positive">Yes</p>
-                                    ) : (
-                                        <p className="status-negative">No</p>
-                                    )}
-                                    <p>Pickup:</p>
-                                    {restaurant.pickup ? (
-                                        <p className="status-positive">Yes</p>
-                                    ) : (
-                                        <p className="status-negative">No</p>
-                                    )}
-                                </div>
-                                <div className="open-close">
-                                    {restaurant.opening_hours.open_now ? (
-                                        <p className="status-positive">Open</p>
-                                    ) : (
-                                        <p className="status-negative">
-                                            Closed
-                                        </p>
-                                    )}
+                                <div className="text-content">
+                                    <h1>{restaurant.name}</h1>
+                                    <p className="cuisine">
+                                        Cuisine: {restaurant.cuisine}
+                                    </p>
+                                    <p className="rest-address">
+                                        {restaurant.formatted_address}
+                                    </p>
+                                    <div className="delivery">
+                                        <p>Delivery:</p>{" "}
+                                        {restaurant.delivery ? (
+                                            <p className="status-positive">Yes</p>
+                                        ) : (
+                                            <p className="status-negative">No</p>
+                                        )}
+                                        <p>Pickup:</p>
+                                        {restaurant.pickup ? (
+                                            <p className="status-positive">Yes</p>
+                                        ) : (
+                                            <p className="status-negative">No</p>
+                                        )}
+                                    </div>
+                                    <div className="open-close">
+                                        {restaurant.opening_hours.open_now ? (
+                                            <p className="status-positive">Open</p>
+                                        ) : (
+                                            <p className="status-negative">
+                                                Closed
+                                            </p>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
+
                     ))}
                 </div>
             </div>
