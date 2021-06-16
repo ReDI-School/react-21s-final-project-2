@@ -80,7 +80,7 @@ export default function RestaurantList() {
                         selectedType,
                         isOpen,
                     ).map((restaurant) => (
-                        <Link to={`restaurant/${restaurant.id}`}  >
+                        <Link className="l-link" to={`restaurant/${restaurant.id}`}  >
                             <div className="listItem" key={restaurant.id}>
                                 <div className="img-content">
                                     <img
