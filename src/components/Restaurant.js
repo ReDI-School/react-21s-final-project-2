@@ -9,74 +9,72 @@ export default function Restaurant(props) {
     const restaurantId = props.match.params.restaurantId;
 
     useEffect(() => {
-
         const getRestaurant = async () => {
             const response = await fetch(apiRestaurant);
             const data = await response.json();
-            const selectedRestaurant = data.results.find(item => {
+            const selectedRestaurant = data.results.find((item) => {
                 if (item.id === restaurantId) {
                     return true;
                 }
                 return false;
-
-            })
+            });
             setRestaurantDetails([selectedRestaurant]);
             console.log(selectedRestaurant);
         };
         getRestaurant();
-    })
+    });
     console.log("props: ", props);
     return (
         <div className="Container">
             {restaurantDetails.map((rest) => (
                 <div className="RestaurantInfo" key={rest.id}>
-                    <div className="img-content">
-                        <img src={rest.photos[0].links[0]} alt="restaurant-detail"></img>
+                    <div className="img-content-rest">
+                        <img
+                            src={rest.photos[0].links[0]}
+                            alt="restaurant-detail"
+                        ></img>
                     </div>
-                    <div className="text-content">
+                    <div className="text-content-rest">
                         <h1>{rest.name}</h1>
-                        <p className="restaurant-rating">{getRatingStar(rest.rating)}
-                            {"  "}{rest.rating}/ 5
+                        <p className="restaurant-rating">
+                            {getRatingStar(rest.rating)}
+                            {"  "}
+                            {rest.rating}/ 5
                         </p>
 
-                        <p className="restaurant-price-level">{getPriceLevel(rest.price_level)}
+                        <p className="restaurant-price-level">
+                            {getPriceLevel(rest.price_level)}
                             {/* ... */}
                         </p>
-                        <p className="restaurant-cuisine">
-                            {rest.cuisine}
-                        </p>
-                        <p>Opening Hours{" "}
-                            {rest.opening_hours.hours.open}  ~
+                        <p className="restaurant-cuisine">{rest.cuisine}</p>
+                        <p>
+                            Opening Hours {rest.opening_hours.hours.open} ~
                             {rest.opening_hours.hours.close}
                         </p>
-                        <p> Delivery:{" "}</p>
+                        <p> Delivery: </p>
                         {rest.delivery ? (
-                            <p className="status-positive">Yes</p>
+                            <p className="status-positive-rest">Yes</p>
                         ) : (
-                            <p className="status-negative">No</p>
+                            <p className="status-negative-rest">No</p>
                         )}
-                        <p>Pick Up:{" "}</p>
+                        <p>Pick Up: </p>
                         {rest.pickup ? (
-                            <p className="status-positive">Yes</p>
+                            <p className="status-positive-rest">Yes</p>
                         ) : (
-                            <p className="status-negative">No</p>
+                            <p className="status-negative-rest">No</p>
                         )}
 
-
-                        <p className="restaurant-address">{rest.formatted_address}</p>
+                        <p className="restaurant-address">
+                            {rest.formatted_address}
+                        </p>
                         <p className="restaurant-phone">{rest.social.phone}</p>
                         <p className="restaurant-email">{rest.social.email}</p>
-
                     </div>
                 </div>
-
             ))}
         </div>
-
     );
-
 }
-
 
 const getRatingStar = (rating) => {
     if (rating <= 1.5) {
